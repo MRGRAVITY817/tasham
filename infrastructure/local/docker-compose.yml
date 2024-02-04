@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  surrealdb:
+    image: surrealdb/surrealdb:latest
+    container_name: surrealdb
+    restart: always
+    command: start --bind 0.0.0.0:8080 file:/data/srdb.db
+    environment:
+      SURREAL_USER: $SURREAL_USER
+      SURREAL_PASS: $SURREAL_PASS
+    ports:
+      - 8080:8080
+    volumes:
+      - ./data:/data
