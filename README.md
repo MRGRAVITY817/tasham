@@ -45,6 +45,10 @@ First you should run SurrealDB. Run this script.
 
 ```bash
 $ ./scripts/local_db.sh up
+
+# The command above will use "surreal" as default DB user & password.
+# To provide custom user & password, run
+# $ SURREAL_USER=<custom user> SURREAL_PASS=<custom password> ./scripts/local_db.sh up
 ```
 
 `local_db.sh` accepts `up` or `down` option.  
