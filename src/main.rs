@@ -1,3 +1,9 @@
+use crate::settings::Settings;
+
+mod settings;
+
 fn main() {
-    println!("Hello, world!");
+    let settings = Settings::new();
+
+    println!("{:?}", settings);
 }
