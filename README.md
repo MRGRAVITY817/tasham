@@ -41,7 +41,14 @@ $ fly auth login
 
 ## Local Development
 
-TODO: Add description
+First you should run SurrealDB. Run this script.  
+
+```bash
+$ ./scripts/local_db.sh up
+```
+
+`local_db.sh` accepts `up` or `down` option.  
+When you want to stop database, replace the command above with `down` options.
 
 ## Deployment
 
