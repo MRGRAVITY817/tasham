@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>{% block title %}{{ title }}{% endblock %}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{% block description %}{{ description }}{% endblock %}">
+  <meta property="og:title" content="{% block title %}{{ title }}{% endblock %}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@unocss/reset/tailwind.min.css">
+</head>
+
+<body>
+  <div id="content">
+    {% block content %}
+    {% endblock %}
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@unocss/runtime"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</body>
+
+</html>

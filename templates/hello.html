@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="p-24">
+  <div class="text-5xl font-black mb-20">
+    Hello {{ name }}
+  </div>
+
+  <div class="max-w-[500px]">
+    {% include "components/accordion.html" %}
+  </div>
+
+  {% include "components/date_picker.html" %}
+
+  {% include "components/testimonials_grid.html" %}
+
+</div>
+
+{% endblock %}

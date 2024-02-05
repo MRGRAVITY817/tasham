@@ -35,6 +35,15 @@ The instruction to install `flyctl` for each platform can be found [here](https:
 
 Once you installed it, run this command to log in to your Fly.io account.
 
+### `cargo-watch`
+
+For live-reloading your source code, install `cargo-watch`.  
+
+```bash
+$ cargo install cargo-watch
+```
+
+
 ```bash
 $ fly auth login
 ```

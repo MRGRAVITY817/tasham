@@ -1,6 +1,6 @@
 use {
     crate::{
-        pages::index,
+        pages::hello,
         result::AppResult,
         settings::{
             database_settings::{AppDb, DatabaseSettings},
@@ -26,7 +26,7 @@ pub async fn build_app(settings: Settings) -> AppResult<()> {
 
     // TODO: Add services
     let router = Router::new()
-        .route("/", get(index::index))
+        .route("/", get(hello::hello_page))
         // .nest("/signup", signup::signup_routes())
         // .fallback_service(
         //     ServeDir::new("./static").not_found_service(notfound::not_found.into_service()),

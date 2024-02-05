@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+askama = "0.12.1"
 axum = "0.7.1"
 chrono = { version = "0.4.31", features = ["serde"] }
 config = { version = "0.13.4", features = ["toml"] }
