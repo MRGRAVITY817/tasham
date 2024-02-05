@@ -1,9 +1,12 @@
-use crate::settings::Settings;
-
+mod application;
+mod result;
 mod settings;
 
-fn main() {
-    let settings = Settings::new();
+use {crate::settings::Settings, application::build_app, result::AppResult};
 
-    println!("{:?}", settings);
+#[tokio::main]
+async fn main() -> AppResult<()> {
+    let settings = Settings::new()?;
+
+    build_app(settings).await
 }

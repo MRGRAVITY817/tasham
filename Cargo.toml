@@ -12,4 +12,5 @@ serde = { version = "1.0.193", features = ["derive"] }
 tokio = { version = "1.34.0", features = ["full"] }
 maud = { version = "0.26.0", features = ["axum"] }
 config = { version = "0.13.4", features = ["toml"] }
+thiserror = "1.0.56"
 
