@@ -1,13 +1,17 @@
-use crate::{
-    result::AppResult,
-    settings::{
-        database_settings::{AppDb, DatabaseSettings},
-        Settings,
+use {
+    crate::{
+        pages::index,
+        result::AppResult,
+        settings::{
+            database_settings::{AppDb, DatabaseSettings},
+            Settings,
+        },
     },
+    axum::{routing::get, Router},
+    std::sync::Arc,
+    surrealdb::{engine::remote::ws::Ws, opt::auth::Root, Surreal},
+    tower_livereload::LiveReloadLayer,
 };
-use axum::Router;
-use std::sync::Arc;
-use surrealdb::{engine::remote::ws::Ws, opt::auth::Root, Surreal};
 
 pub struct AppState {
     pub db: AppDb,
@@ -18,15 +22,16 @@ pub async fn build_app(settings: Settings) -> AppResult<()> {
         db: connect_db(&settings.database).await?,
     });
 
-    let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await?;
+    let listener = tokio::net::TcpListener::bind("0.0.0.0:3333").await?;
 
     // TODO: Add services
     let router = Router::new()
-        // .route("/", get(index::index))
+        .route("/", get(index::index))
         // .nest("/signup", signup::signup_routes())
         // .fallback_service(
         //     ServeDir::new("./static").not_found_service(notfound::not_found.into_service()),
         // )
+        .layer(LiveReloadLayer::new())
         .with_state(app_state);
 
     axum::serve(listener, router).await?;

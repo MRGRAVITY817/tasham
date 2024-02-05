@@ -18,6 +18,7 @@ export SURREAL_URL="127.0.0.1:8080"
 case $UP_OR_DOWN in
     "up")
         docker compose -f ./infrastructure/local/docker-compose.yml up -d 
+        RUSTFLAGS="-Zthreads=8" cargo +nightly watch -x run
         ;;
     "down")
         echo "Running staging scripts..."
