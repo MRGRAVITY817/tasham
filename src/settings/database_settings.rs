@@ -2,6 +2,7 @@ use std::env;
 
 use crate::result::AppResult;
 use serde::Deserialize;
+use surrealdb::{engine::remote::ws::Client, Surreal};
 
 #[derive(Debug, Deserialize)]
 pub struct DatabaseSettings {
@@ -19,3 +20,5 @@ impl DatabaseSettings {
         })
     }
 }
+
+pub type AppDb = Surreal<Client>;

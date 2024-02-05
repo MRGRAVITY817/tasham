@@ -15,6 +15,10 @@ pub enum AppError {
         #[from]
         source: std::env::VarError,
     },
+    Io {
+        #[from]
+        source: std::io::Error,
+    },
 }
 
 impl Display for AppError {
@@ -23,6 +27,7 @@ impl Display for AppError {
             AppError::Db { source } => write!(f, "{}", source),
             AppError::Config { source } => write!(f, "{}", source),
             AppError::Env { source } => write!(f, "{}", source),
+            AppError::Io { source } => write!(f, "{}", source),
         }
     }
 }
