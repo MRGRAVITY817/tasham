@@ -13,6 +13,8 @@ export SURREAL_USER="${SURREAL_USER:=surreal}"
 # Check if a custom password has been set, otherwise default to 'surreal'
 export SURREAL_PASS="${SURREAL_PASS:=surreal}"
 
+export SURREAL_URL="127.0.0.1:8080"
+
 case $UP_OR_DOWN in
     "up")
         docker compose -f ./infrastructure/local/docker-compose.yml up -d 

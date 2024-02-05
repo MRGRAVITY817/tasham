@@ -1,21 +1,21 @@
 use crate::{
     result::{AppError, AppResult},
-    settings::Settings,
+    settings::{database_settings::DatabaseSettings, Settings},
 };
 use surrealdb::{engine::remote::ws::Ws, opt::auth::Root, Surreal};
 
 pub async fn build_app(settings: Settings) -> AppResult<()> {
-    connect_db(&settings.database.username, &settings.database.password).await
+    connect_db(&settings.database).await
 }
 
-async fn connect_db(username: &str, password: &str) -> AppResult<()> {
+async fn connect_db(settings: &DatabaseSettings) -> AppResult<()> {
     // Connect to the server
-    let db = Surreal::new::<Ws>("127.0.0.1:8000").await?;
+    let db = Surreal::new::<Ws>(&settings.url).await?;
 
     // Signin as a namespace, database, or root user
     db.signin(Root {
-        username: username,
-        password: password,
+        username: &settings.username,
+        password: &settings.password,
     })
     .await
     .map_err(|e| AppError::Db { source: e })
