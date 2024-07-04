@@ -8,6 +8,7 @@ askama = "0.12.1"
 axum = "0.7.1"
 chrono = { version = "0.4.31", features = ["serde"] }
 config = { version = "0.13.4", features = ["toml"] }
+maud = { version = "*", features = ["axum"] }
 serde = { version = "1.0.193", features = ["derive"] }
 surrealdb = "1.1.1"
 thiserror = "1.0.56"

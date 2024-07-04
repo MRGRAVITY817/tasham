@@ -7,13 +7,15 @@
     Hello {{ name }}
   </div>
 
-  <div class="max-w-[500px]">
-    {% include "components/accordion.html" %}
+  <div class="flex justify-start items-start gap-12 mb-72">
+    <div class="max-w-[500px]">
+      {% include "components/accordion.html" %}
+    </div>
+    {% include "components/date_picker.html" %}
   </div>
 
-  {% include "components/date_picker.html" %}
-
   {% include "components/testimonials_grid.html" %}
+
 
 </div>
 
